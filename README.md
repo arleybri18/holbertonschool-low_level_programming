@@ -1,0 +1,1 @@
+This repository contain the excersices for the beginer in C language
