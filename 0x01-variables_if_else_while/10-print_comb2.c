@@ -5,7 +5,7 @@
  *
  * Return: Always 0 (Success)
  *
- * Description: This program print the numbers 0 to 9 separated by comma
+ * Description: This program print the numbers 00 to 99 separated by comma
  */
 int main(void)
 {
