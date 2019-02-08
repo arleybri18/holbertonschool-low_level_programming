@@ -12,20 +12,22 @@ int main(void)
 	int i;
 	int j;
 
-	for (i = 48; i < 58; i++)
+	for (i = 0; i < 100; i++)
 	{
-		for (j = 48; j < 58; j++)
+		for (j = i + 1; j < 100; j++)
 		{
-			putchar(i);
-			putchar(j);
-			if (j != 57 || i != 57)
+			putchar(i / 10 + '0');
+			putchar(i % 10 + '0');
+			putchar(32);
+			putchar(j / 10 + '0');
+			putchar(j % 10 + '0');
+			if (j != 99 || i != 98)
 			{
-				putchar(44);
-				putchar(32);
+				putchar(',');
+				putchar(' ');
 			}
 		}
 	}
-
-	putchar('\n');
+	putchar(10);
 	return (0);
 }
