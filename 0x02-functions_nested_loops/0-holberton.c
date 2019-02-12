@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include "_putchar.h"
+#include "holberton.h"
 
 /**
  * main -  Entry point
@@ -20,7 +19,7 @@ int main(void)
 	_putchar('t');
 	_putchar('o');
 	_putchar('n');
-	putchar(10);
+	_putchar(10);
 	return (0);
 
 }
