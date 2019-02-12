@@ -15,6 +15,8 @@ void times_table(void)
 	while (i < 10)
 	{
 		j = 0;
+
+		_putchar(48);
 		while (j < 10)
 		{
 			if (j != 0)
@@ -35,12 +37,10 @@ void times_table(void)
 					_putchar((res % 10) + 48);
 				}
 			}
-			res = i * j;
-			_putchar
 			j++;
 
 		}
-		printf("\n");
+		_putchar(10);
 		i++;
 	}
 }
