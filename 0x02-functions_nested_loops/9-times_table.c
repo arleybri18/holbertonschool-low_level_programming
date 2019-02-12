@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 
 /**
  * times_table - print table times
@@ -11,6 +10,7 @@ void times_table(void)
 {
 	int i = 0;
 	int j;
+	int res;
 
 	while (i < 10)
 	{
@@ -19,18 +19,24 @@ void times_table(void)
 		{
 			if (j != 0)
 			{
-				printf(",");
+				_putchar(44);
+				res = i * j;
 
-				if ((i * j) < 10)
+				if (res < 10)
 				{
-					printf("  ");
+					_putchar(32);
+					_putchar(32);
+					_putchar((res % 10) + 48);
 				}
 				else
 				{
-					printf(" ");
+					_putchar(32);
+					_putchar((res / 10) + 48);
+					_putchar((res % 10) + 48);
 				}
 			}
-			printf("%d", (i * j));
+			res = i * j;
+			_putchar
 			j++;
 
 		}
