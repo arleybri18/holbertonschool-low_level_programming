@@ -1,9 +1,12 @@
 #include <stdio.h>
-#include "holberton.h"
+#include "_putchar.h"
 
 /**
- *main : Entry point
+ * main -  Entry point
  *
+ * Return: Always 0 (Success)
+ *
+ * Description: This program calll a function included in the header file
  */
 
 int main(void)
@@ -17,7 +20,7 @@ int main(void)
 	_putchar('t');
 	_putchar('o');
 	_putchar('n');
-	printf("\n");
+	putchar(10);
 	return (0);
 
 }
