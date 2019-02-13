@@ -1,6 +1,7 @@
 #include <stdio.h>
 /**
  * print_to_98 - print number until 98
+ * @n: input parameter
  *
  * Return: On success 0.
  */
