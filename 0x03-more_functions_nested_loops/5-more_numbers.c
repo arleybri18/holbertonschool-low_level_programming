@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * print_most_numbers - writes the numbers 10 times to stdout
+ * more_numbers - writes the numbers 10 times to stdout
  * c: The character to print
  *
  * Return: On success 1.
