@@ -1,8 +1,8 @@
 #include "holberton.h"
 
 /**
- * print_diagonal - writes the diagonal repeated n times
- * @n: The character to print
+ * print_diagonal - writes the diagonal
+ * @n: The number of iterations
  *
  * Return: On success 0.
  */
@@ -10,20 +10,24 @@
 void print_diagonal(int n)
 {
 	int i;
+	int j;
 
-	i = 0;
 	if (n > 0)
 	{
-		while (i < n)
+		for (i = 1; i <= n; i++)
 		{
-			_putchar(92);
-			i++;
+			for (j = 1; j <= n; j++)
+			{
+				if (j <= (n - (n - i)))
+				{
+					_putchar(92);
+				}
+			}
+			_putchar('\n');
 		}
-		_putchar('\n');
 	}
 	else
 	{
 		_putchar('\n');
 	}
-
 }
