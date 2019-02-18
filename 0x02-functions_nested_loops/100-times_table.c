@@ -6,41 +6,42 @@
  * Return: On success 0.
  */
 
-void times_table(void)
+void print_times_table(int n)
 {
 	int i = 0;
 	int j;
 	int res;
 
-	while (i < 10)
-	{
-		j = 0;
-
-		_putchar(48);
-		while (j < 10)
+	if (n > 0 && n < 16)
+	{	
+		while (i <= n)
 		{
-			if (j != 0)
+			j = 0;
+			_putchar(48);
+			while (j <= n)
 			{
-				_putchar(44);
-				res = i * j;
+				if (j != 0)
+				{
+					_putchar(44);
+					res = i * j;
 
-				if (res < 10)
-				{
-					_putchar(32);
-					_putchar(32);
-					_putchar((res % 10) + 48);
+					if (res < 10)
+					{
+						_putchar(32);
+						_putchar(32);
+						_putchar((res % 10) + 48);
+					}
+					else
+					{
+						_putchar(32);
+						_putchar((res / 10) + 48);
+						_putchar((res % 10) + 48);
+					}
 				}
-				else
-				{
-					_putchar(32);
-					_putchar((res / 10) + 48);
-					_putchar((res % 10) + 48);
-				}
+				j++;
 			}
-			j++;
-
+			_putchar(10);
+			i++;
 		}
-		_putchar(10);
-		i++;
 	}
 }
