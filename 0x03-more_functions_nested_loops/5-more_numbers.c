@@ -1,8 +1,7 @@
 #include "holberton.h"
 
 /**
- * more_numbers - writes the numbers 10 times to stdout
- * c: The character to print
+ * more_numbers - writes the numbers 0 to 14 times to stdout
  *
  * Return: On success 1.
  */
@@ -17,15 +16,11 @@ void more_numbers(void)
 		c = 0;
 		while (c <= 14)
 		{
-			if (c < 10)
-			{
-				_putchar(c + 48);
-			}
-			else
+			if (c >= 10)
 			{
 				_putchar((c / 10) + 48);
-				_putchar((c % 10) + 48);
 			}
+			_putchar((c % 10) + 48);
 			c++;
 		}
 		_putchar(10);
