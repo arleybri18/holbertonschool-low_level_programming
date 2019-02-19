@@ -6,7 +6,7 @@
  * @dest: pointer contain a string to return
  * @src: pointer contain a string received
  *
- * Return : return string dest
+ * Return: return char string *dest
  */
 
 char *_strcpy(char *dest, char *src)
