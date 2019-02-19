@@ -20,7 +20,7 @@ void rev_string(char *s)
 	}
 	j--;
 	i = 0;
-	while (i != j)
+	while (i < j)
 	{
 		auxiliar = *(s + j);
 		*(s + j) = *(s + i);
