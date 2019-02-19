@@ -12,9 +12,14 @@ void puts2(char *str)
 	int i;
 	int len;
 
+
+	while (*(str + len) != '\0')
+	{
+		len++;
+	}
+
 	i = 0;
-	len = sizeof(str);
-	while (i <= len)
+	while (i < len)
 	{
 		if (i % 2 == 0)
 		{
