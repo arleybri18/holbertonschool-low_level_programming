@@ -12,7 +12,6 @@ void puts_half(char *str)
 	int i;
 	int len;
 
-
 	while (*(str + len) != '\0')
 	{
 		len++;
