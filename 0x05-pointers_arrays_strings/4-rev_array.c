@@ -1,9 +1,9 @@
 #include "holberton.h"
 
 /**
- * rev_string - print the contain of string reverse recorring an array
- * until the position len
- * @s: receive the string
+ * reverse_array - reverse an array of length n
+ * @a: receive the string
+ * @n: length of the array
  *
  */
 
@@ -11,7 +11,8 @@ void reverse_array(int *a, int n)
 {
 	int auxiliar;
 	int i;
-	
+
+	/*loop that iterate array and reverse using the auxiliar variable*/
 	i = 0;
 	while (i < n)
 	{
