@@ -1,24 +1,28 @@
 #include "holberton.h"
 
 /**
- * rev_string - print the contain of string reverse recorring an array
- * until the position len
+ * string_toupper - convert characters in lowercase to uppercase
  * @s: receive the string
  *
+ * Return: return de string converted
  */
 
-char *string_toupper(char *)
+char *string_toupper(char *s)
 {
-	int auxiliar;
 	int i;
-	
+	/**
+	 * Iterate an array in alphabet in lowercase and
+	 * convert to uppercase less 32 see ASCII
+	 */
 	i = 0;
-	while (i < n)
+	while (s[i] != '\0')
 	{
-		auxiliar = *(a + n);
-		*(a + n) = *(a + i);
-		*(a + i) = auxiliar;
-		n--;
+		if (s[i] >= 'a' && s[i] <= 'z')
+		{
+			s[i] = s[i] - 32;
+		}
 		i++;
 	}
+
+	return (s);
 }
