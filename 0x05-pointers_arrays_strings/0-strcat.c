@@ -34,14 +34,11 @@ char *_strcat(char *dest, char *src)
 	int i;
 
 	/*Iterate arrays and insert values of src into dest after len_dest*/
-	for(i = 0;src[i] != '\0';i++)
+	for (i = 0; src[i] != '\0'; i++)
 	{
 		dest[len_dest + i] = src[i];
 	}
 	dest[len_dest + i] = '\0';
 
-return dest;
-
-
-
+	return (dest);
 }
