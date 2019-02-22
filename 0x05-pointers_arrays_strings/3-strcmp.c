@@ -1,12 +1,11 @@
 #include "holberton.h"
 
 /**
- * _strncat - concatenate n characters of an array
- * @dest: array that receive the characters of array source
- * @src: array source
- * @n: numbers of characters to concat
+ * _strcmp - compare two words and retur if match or not match
+ * @s1: firts array
+ * @s2: second array
  *
- * Return: return value of dest variable
+ * Return: return value of flag variable
  */
 
 int _strcmp(char *s1, char *s2)
@@ -15,11 +14,11 @@ int _strcmp(char *s1, char *s2)
 	int flag;
 
 	flag = 0;
-	for(i = 0;s1[i] != '\0' ;i++)
+	for (i = 0; s1[i] != '\0' && flag == 0 ; i++)
 	{
-		if(s1[i] != s2[i])
-			flag = -15;
+		if (s1[i] != s2[i])
+			flag = s1[i] - s2[i];
 	}
 
-	return flag;
+	return (flag);
 }
