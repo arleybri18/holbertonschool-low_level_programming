@@ -19,17 +19,13 @@ char *leet(char *s)
 	{
 		if (s[i] == 'a' || s[i] == 'A')
 			s[i] = 4 + 48;
-
-		if (s[i] == 'e' || s[i] == 'E')
+		else if (s[i] == 'e' || s[i] == 'E')
 			s[i] = 3 + 48;
-
-		if (s[i] == 'o' || s[i] == 'O')
+		else if (s[i] == 'o' || s[i] == 'O')
 			s[i] = 0 + 48;
-
-		if (s[i] == 't' || s[i] == 'T')
+		else if (s[i] == 't' || s[i] == 'T')
 			s[i] = 7 + 48;
-
-		if (s[i] == 'l' || s[i] == 'L')
+		else if (s[i] == 'l' || s[i] == 'L')
 			s[i] = 1 + 48;
 		i++;
 	}
