@@ -13,7 +13,7 @@ char *leet(char *s)
 	int j;
 	char low_letter[] = "aeotl";
 	char upper_letter[] = "AEOTL";
-	char integers[] ="43071";
+	char integers[] = "43071";
 	/**
 	 * Iterate an array and find the letter and change
 	 * letters by numbers
