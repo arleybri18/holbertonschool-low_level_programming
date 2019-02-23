@@ -10,20 +10,30 @@
 char *rot13(char *s)
 {
 	int i;
+	int j;
+	int flag;
+	char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char root13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
 	/**
 	 * Iterate an array and find the letter and change
 	 * letters by rot13
 	 */
-	for (i = 0; (s[i] != '\0'); i++)
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if ((s[i] >= 'a' && s[i] <= 'm') || (s[i] >= 'A' && s[i] <= 'M'))
+		j = 0;
+		flag = 0;
+		while (alphabet[j] != '\0' && flag == 0)
 		{
-			s[i] = s[i] + 13;
+			if (s[i] == alphabet[j])
+			{
+				s[i] = root13[j];
+				flag = 1;
+			}
+			j++;
 		}
-		else if ((s[i] >= 'n' && s[i] <= 'z') || (s[i] >= 'N' && s[i] <= 'Z'))
-		{
-			s[i] = s[i] - 13;
-		}
+	i++;
 	}
 
 	return (s);
