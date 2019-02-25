@@ -15,12 +15,12 @@ char *_strchr(char *s, char c)
 	int i;
 	/*Iterate the array and search the character*/
 	i = 0;
-	while (s[i] != '\0')
+	while (s[i] != c)
 	{
-		if (s[i] == c)
-			return (&s[i]);
+		if (s[i] == '\0')
+			return (0);
 		i++;
 	}
 	/*Return null if not find the character*/
-	return (0);
+	return (&s[i]);
 }
