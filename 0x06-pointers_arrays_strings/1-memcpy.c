@@ -3,7 +3,7 @@
 /**
  * _memcpy - copies n characters from memory area dest to memory area str
  * @dest: This is pointer to the source of data to be copied
- * @src: This is pointer to the destination array where the content is to be copied
+ * @src: This is pointer to the dest array where the content is to be copied
  * @n: This is the number of bytes to be copied
  *
  * Return: return array dest
