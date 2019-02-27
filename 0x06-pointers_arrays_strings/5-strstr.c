@@ -1,9 +1,9 @@
 #include "holberton.h"
+#include <stdio.h>
 
 /**
- * _strstr - The strpbrk() function locates the first occurrence in the
- * string s of any of the bytes in the string accept
- * entirely of characters in accept
+ * _strstr - The function locates the first occurrence in the
+ * string haystack of any of the bytes in the string needle
  * @haystack: This is the C string to be scanned
  * @needle: This is the string containing the list of characters to match in s
  *
@@ -17,18 +17,17 @@ char *_strstr(char *haystack, char *needle)
 	int j;
 	/*Iterate first array*/
 	i = 0;
-	while (s[i] != '\0')
+	while (haystack[i] != '\0')
 	{
-		j = 0;
-		/*iterate string to compare letter a letter*/
-		while (accept[j] != '\0')
+		/*compare string whit firts character in needle*/
+		if (haystack[i] == needle[0])
 		{
-			/* if the positions are equals return addres*/
-			if (s[i] == accept[j])
+			/*iterate string to compare letter a letter*/
+			for (j = 1; haystack[i + j] == needle[j]; j++)
 			{
-				return (&s[i]);
+				if (needle[j] == '\0')
+					return (&haystack[i]);
 			}
-			j++;
 		}
 	i++;
 	}
