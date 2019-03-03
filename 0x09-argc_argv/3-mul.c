@@ -2,12 +2,12 @@
 #include <stdlib.h>
 
 /**
- * main - print the arguments passed
+ * main - print the multiplication of arguments
  *
  * @argc: number of arguments
  * @argv: array of string with the list of arguments
  *
- * Return: Always 0.
+ * Return: 0 if is susscessfully or 1 it is not.
  */
 
 int main(int argc, char *argv[])
@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 	else
 	{
 		printf("Error\n");
+		return (1);
 	}
 
 	return (0);
