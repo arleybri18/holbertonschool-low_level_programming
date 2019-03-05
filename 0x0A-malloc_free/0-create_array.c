@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * main - create an array with dynamic memory 
+ * create_array - create an array with dynamic memory
  *
  * @size: value of lenght of the array
  * @c: character for fill the array
@@ -14,22 +14,18 @@ char *create_array(unsigned int size, char c)
 {
 	char *arr;
 	unsigned int i;
-
-	/* Validate lenght of array*/ 
+	/* Validate lenght of array*/
 	if (size == 0)
-		return NULL;
+		return (NULL);
 
 	/* allocate space char array*/
 	arr = malloc(size * sizeof(char));
 	/* validate return function malloc*/
 	if (arr == NULL)
 		return (NULL);
-	else
+	for (i = 0; i < size; i++)
 	{
-		for (i = 0; i < size; i++)
-		{
-			arr[i] = c;
-		}
-		return (arr);
+		arr[i] = c;
 	}
+	return (arr);
 }
