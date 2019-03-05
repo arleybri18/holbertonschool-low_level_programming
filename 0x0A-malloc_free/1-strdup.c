@@ -13,15 +13,22 @@ char *_strdup(char *str)
 {
 	int i;
 	char *arr;
-	/*allocate space char array*/
+	/**
+	 * using malloc for allocated memory
+	 * malloc return an address to pointer
+	 */
+	if (str[0] == '\0')
+		return (NULL);
 	arr = malloc(sizeof(*str));
 	/* validate return function malloc*/
 	if (arr == NULL)
 		return (NULL);
+
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		arr[i] = str[i];
 	}
+
 	return (arr);
 	free(arr);
 }
