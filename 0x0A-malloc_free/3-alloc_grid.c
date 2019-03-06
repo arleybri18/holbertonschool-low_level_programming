@@ -35,6 +35,9 @@ int **alloc_grid(int width, int height)
 	{
 		/* allocate memory of the columns*/
 		arr[row] = malloc(sizeof(int) * height);
+		/*validate return function malloc*/
+		if (arr[row] == NULL)
+			return (NULL);
 		/* Iterate columns of the array*/
 		for (col = 0; col < height; col++)
 		{
