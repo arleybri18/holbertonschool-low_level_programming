@@ -15,9 +15,11 @@ void free_grid(int **grid, int height)
 {
 	int i;
 
+	/* validate if grid is null, free memory*/
 	if (grid == NULL)
 		free(grid);
-	for (i = 0; i <= height; i++)
+	/*Iterate array and free memory*/
+	for (i = height; i >= 0; i--)
 		free(grid[i]);
 	free(grid);
 }
