@@ -10,9 +10,9 @@
  * Return: size of string
  */
 
-int _strlenght(char *s)
+unsigned int _strlenght(char *s)
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -35,7 +35,7 @@ char *_strdup(char *str)
 	unsigned int size;
 	char *arr;
 	/* Validate lenght of array*/
-	if (str[0] == '\0')
+	if (!str)
 		return (NULL);
 	size = 1 + _strlenght(str);
 	if (size == 0)
