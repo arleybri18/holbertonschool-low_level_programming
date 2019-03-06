@@ -36,6 +36,11 @@ char *str_concat(char *s1, char *s2)
 	char *arr;
 	unsigned int size_s1, size_s2;
 
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+
 	size_s1 = 1 + _strlenght(s1);
 	size_s2 = 1 + _strlenght(s2);
 
