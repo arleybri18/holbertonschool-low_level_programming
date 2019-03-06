@@ -37,7 +37,7 @@ char *_strdup(char *str)
 	/* Validate lenght of array*/
 	if (str[0] == '\0')
 		return (NULL);
-	size = _strlenght(str);
+	size = 1 + _strlenght(str);
 	if (size == 0)
 		return (NULL);
 
