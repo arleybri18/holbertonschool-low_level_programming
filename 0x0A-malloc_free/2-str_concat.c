@@ -3,37 +3,60 @@
 #include <stdio.h>
 
 /**
- * _strdup - duplicate a string with dynamic array
+ * _strlenght - calculate a length of a string
  *
- * @str: string
+ * @s: string
+ *
+ * Return: size of string
+ */
+
+unsigned int _strlenght(char *s)
+{
+	unsigned int i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+/**
+ * str_concat - concat a two strings
+ *
+ * @s1: string 1
+ * @s2: string 2
  *
  * Return: NULL if a size or malloc fail, or copy array it's ok.
  */
 
 char *str_concat(char *s1, char *s2)
 {
-	int i;
-	int j;
+	int cont;
+	int acum;
 	char *arr;
+	unsigned int size_s1, size_s2;
+
+	size_s1 = 1 + _strlenght(s1);
+	size_s2 = 1 + _strlenght(s2);
+
 	/**
 	 * using malloc for allocated memory
 	 * malloc return an address to pointer
 	 */
 
-	printf("s1 %lu s2 es %lu", sizeof(*s1), sizeof(*s2));
-	arr = malloc(sizeof(*s1) + sizeof(*s2));
+	arr = malloc(size_s1 + size_s2);
 	/* validate return function malloc*/
 	if (arr == NULL)
 		return (NULL);
+	/* Iterate first array*/
+	for (cont = 0; s1[cont] != '\0'; cont++)
+		arr[cont] = s1[cont];
+	/* acumulate counter and iterate second array*/
+	acum = cont;
+	for (cont = 0; s2[cont] != '\0'; cont++)
+		arr[acum + cont] = s2[cont];
 
-	for (i = 0; s1[i] != '\0'; i++)
-		arr[i] = s1[i];
-	j = i;
-	printf("i esta en %d y j esta en %d", i, j);
-	for (i = 0; s2[i] != '\0'; i++)
-		arr[j] = s2[i];
-
-	arr[j] = '\0';
+	arr[acum + cont] = '\0';
 	return (arr);
 	free(arr);
 }
