@@ -19,7 +19,7 @@ void free_grid(int **grid, int height)
 	if (grid == NULL)
 		free(grid);
 	/*Iterate array and free memory*/
-	for (i = height; i >= 0; i--)
+	for (i = height - 1; i >= 0; i--)
 		free(grid[i]);
 	free(grid);
 }
