@@ -31,8 +31,8 @@ int _strlenght(char *s)
 
 char *_strdup(char *str)
 {
-	int i;
-	int size;
+	unsigned int i;
+	unsigned int size;
 	char *arr;
 	/* Validate lenght of array*/
 	if (str[0] == '\0')
