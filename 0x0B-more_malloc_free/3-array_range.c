@@ -13,7 +13,7 @@
 int *array_range(int min, int max)
 {
 	int *arr;
-	int i,acum;
+	int i, acum;
 	/* Validate lenght of array*/
 	if (min > max)
 		return (NULL);
