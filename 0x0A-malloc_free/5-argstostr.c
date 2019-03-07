@@ -3,20 +3,30 @@
 #include <stdio.h>
 
 /**
- * len - calculate a length of a string
+ * len - calculate a length of a 2D array
  * @s: string
- *
- * Return: size of string
+ * @ac: lenght of array
+ * Return: size of 2D array
  */
 
-int len(char *s)
+int len(char **s, int ac)
 {
-	int i;
+	int i, j, count;
 
 	i = 0;
-	while (s[i] != '\0')
+	count = 0;
+	while (i < ac)
+	{
+		j = 0;
+		while (s[i][j] != '\0')
+		{
+			count++;
+			j++;
+		}
+		count++;
 		i++;
-	return (i);
+	}
+	return (count);
 }
 
 /**
@@ -30,12 +40,11 @@ int len(char *s)
 
 char *argstostr(int ac, char **av)
 {
-	int col;
-	int row;
-	int **arr;
+	int col, row, lenght, position;
+	char *arr;
 
 	/* validate parameters*/
-	if (ac == 0 || !av)
+	if (ac == 0 || av == NULL)
 		return (NULL);
 	/**
 	 * using malloc for allocated memory
@@ -43,26 +52,26 @@ char *argstostr(int ac, char **av)
 	 * sizeof(int *) return size of a pointer int
 	 */
 
-	arr = malloc(sizeof(int *) * ac);
+	lenght = len(av, ac);
+	arr = malloc(sizeof(char) * (lenght + 1));
 	/* validate return function malloc*/
 	if (arr == NULL)
 		return (NULL);
 	/* Iterate rows of the array*/
+	position = 0;
 	for (row = 0; row < ac; row++)
 	{
-		/* allocate memory of the columns*/
-		arr[row] = malloc(1 + len(&arr[row]));
-		/*validate return function malloc*/
-		if (arr[row] == NULL)
-			return (NULL);
 		/* Iterate columns of the array*/
 		for (col = 0; av[row][col] != '\0'; col++)
 		{
 			/* asigne value rows and columns*/
-			arr[row][col] = av[row][col];
+			arr[position] = av[row][col];
+			position++;
 		}
-		arr[row][col] = '\n';
+		arr[position] = '\n';
+		position++;
 	}
+	arr[position] = '\0';
 	return (arr);
 	free(arr);
 }
