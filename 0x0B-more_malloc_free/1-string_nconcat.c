@@ -63,5 +63,4 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	arr[acum + cont] = '\0';
 	return (arr);
-	free(arr);
 }
