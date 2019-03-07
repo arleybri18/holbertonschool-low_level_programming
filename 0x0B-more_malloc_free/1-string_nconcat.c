@@ -47,7 +47,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	 * using malloc for allocated memory
 	 * malloc return an address to pointer
 	 */
-	if (n < size_s2)
+	if (n <= size_s2)
 		size_s2 = n;
 	arr = malloc(size_s1 + size_s2);
 	/* validate return function malloc*/
