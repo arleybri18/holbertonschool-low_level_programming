@@ -58,7 +58,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		arr[cont] = s1[cont];
 	/* acumulate counter and iterate second array*/
 	acum = cont;
-	for (cont = 0; cont <= size_s2; cont++)
+	for (cont = 0; cont < size_s2; cont++)
 		arr[acum + cont] = s2[cont];
 	arr[acum + cont] = '\0';
 	return (arr);
