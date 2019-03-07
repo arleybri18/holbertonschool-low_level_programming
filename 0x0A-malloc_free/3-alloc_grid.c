@@ -13,33 +13,34 @@
 
 int **alloc_grid(int width, int height)
 {
-	int col;
-	int row;
-	int **arr;
+	int col, row, **arr;
 
 	/* validate if side is less or equal to zero*/
 	if (width <= 0 || height <= 0)
 		return (NULL);
-	/**
-	 * using malloc for allocated memory
-	 * malloc return an address to pointer
-	 * sizeof(int *) return size of a pointer int
-	 */
-
-	arr = malloc(sizeof(int *) * width);
+	arr = malloc(sizeof(int *) * height);
 	/* validate return function malloc*/
 	if (arr == NULL)
 		return (NULL);
 	/* Iterate rows of the array*/
-	for (row = 0; row < width; row++)
+	for (row = 0; row < height; row++)
 	{
 		/* allocate memory of the columns*/
-		arr[row] = malloc(sizeof(int) * height);
+		arr[row] = malloc(sizeof(int) * width);
 		/*validate return function malloc*/
 		if (arr[row] == NULL)
+		{	/* free memory*/
+			for (; row > 0; row--)
+				free(arr[row]);
+			free(arr);
 			return (NULL);
+		}
+	}
+	/* Iterate array rows*/
+	for (row = 0; row < height; row++)
+	{
 		/* Iterate columns of the array*/
-		for (col = 0; col < height; col++)
+		for (col = 0; col < width; col++)
 		{
 			/* asigne value rows and columns*/
 			arr[row][col] = 0;
