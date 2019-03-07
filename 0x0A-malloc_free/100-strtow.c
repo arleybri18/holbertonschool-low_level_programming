@@ -5,15 +5,14 @@
 /**
  * strtow - create a two dimensional array
  *
- * @str: grid to free
+ * @str: grid to create
  *
- * Return: char
+ * Return: char dirmensional array
  */
 
 char **strtow(char *str)
 {
-	char **p;
+	char **arr;
 
-	(void)str;
-	return (p);
+	return (arr);
 }
