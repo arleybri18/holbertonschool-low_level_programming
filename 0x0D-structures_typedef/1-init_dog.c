@@ -1,11 +1,20 @@
 #include "dog.h"
 
 /**
- * print_dog -
+ * init_dog - function that initialize struct dog
  *
- * Return: 
+ * @d: pointer to argument type dog
+ * @name: pointer to name of the dog
+ * @age: age of the dog
+ * @owner: pointer to owner of the dog
+ *
+ * Return: nothing
  */
-void print_dog(struct dog *d)
+
+void init_dog(struct dog *d, char *name, float age, char *owner)
 {
+	(*d).name = name;
+	(*d).age = age;
+	(*d).owner = owner;
 
 }
