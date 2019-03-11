@@ -1,11 +1,15 @@
 #include "dog.h"
+#include <stdio.h>
 
 /**
- * new_dog -
+ * print_dog - function that prints a struct dog
  *
- * Return: 
+ * @d: pointer thar receive the struct dog
+ *
+ * Return: nothing
  */
-dog_t *new_dog(char *name, float age, char *owner)
-{
 
+void print_dog(struct dog *d)
+{
+	printf("Name: %s\nAge: %.6f\nOwner: %s\n", (*d).name, (*d).age, (*d).owner);
 }
