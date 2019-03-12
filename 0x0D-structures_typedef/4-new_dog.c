@@ -67,7 +67,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	/* define a pointer of type dog_t*/
 	dog_t *my_dog;
 	/* allocate memory for this type*/
-	my_dog = malloc(sizeof(struct dog));
+	my_dog = malloc(sizeof(dog));
 	if (my_dog == NULL)
 		return (NULL);
 	my_dog->name = _strdup(name);
