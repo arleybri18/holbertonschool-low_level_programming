@@ -1,58 +1,33 @@
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "dog.h"
 
-/**
- * _strlenght - calculate a length of a string
- *
- * @s: string
- *
- * Return: size of string
- */
-
-unsigned int _strlenght(char *s)
-{
-	unsigned int i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
 
 /**
- * _strdup - duplicate a string with dynamic array
+ * _strdup - Function that copy an array
+ * @str: The string that receives
  *
- * @str: string
- *
- * Return: NULL if a size or malloc fail, or copy array it's ok.
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-
 char *_strdup(char *str)
 {
-	unsigned int i;
-	unsigned int size;
-	char *arr;
-	/* Validate lenght of array*/
+	int i = 0, size = 0;
+	char *ar;
+
 	if (!str)
 		return (NULL);
-	size = 1 + _strlenght(str);
-	if (size == 0)
+	while (str[size])
+		size++;
+	ar = malloc(size * sizeof(char) + 1);
+	if (ar == NULL)
 		return (NULL);
-
-	/* allocate space char array*/
-	arr = malloc(size * sizeof(char));
-	/* validate return function malloc*/
-	if (arr == NULL)
-		return (NULL);
-	for (i = 0; i <= size; i++)
-	{
-		arr[i] = str[i];
-	}
-	return (arr);
-	free(arr);
+	for (i = 0; i < size; i++)
+		ar[i] = str[i];
+	ar[i] = '\0';
+	return (ar);
 }
-
 /**
  * new_dog - function that create new dog
  *
