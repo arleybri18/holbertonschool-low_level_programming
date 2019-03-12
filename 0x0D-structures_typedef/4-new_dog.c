@@ -12,12 +12,24 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
+	char *new_name;
+	char *new_owner;
+
 	/* define a pointer of type dog_t*/
 	dog_t *my_dog;
 	/* allocate memory for this type*/
 	my_dog = malloc(sizeof(struct dog));
 	if (my_dog == NULL)
 		return (NULL);
+	
+	new_name = malloc(sizeof(*name));
+	if (new_name == NULL)
+		return (NULL);
+
+	new_owner = malloc(sizeof(*owner));
+	if (new_owner == NULL)
+		return (NULL);
+
 	/* initialize variables*/
 	my_dog->name = name;
 	my_dog->age = age;
