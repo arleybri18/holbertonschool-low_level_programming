@@ -70,17 +70,24 @@ dog_t *new_dog(char *name, float age, char *owner)
 	my_dog = malloc(sizeof(dog_t));
 	if (my_dog == NULL)
 		return (NULL);
-	my_dog->name = _strdup(name);
-	if (my_dog->name == NULL)
-		free(my_dog);
+	if (name)
+	{
+		my_dog->name = _strdup(name);
+		if (my_dog->name == NULL)
+			free(my_dog);
+	}
+
 	my_dog->age = age;
 
-	my_dog->owner = _strdup(owner);
-	if (my_dog->owner == NULL)
+	if (owner)
 	{
-		if (my_dog->name != 0)
-			free(my_dog->name);
-		free(my_dog);
+		my_dog->owner = _strdup(owner);
+		if (my_dog->owner == NULL)
+		{
+			if (my_dog->name != 0)
+				free(my_dog->name);
+			free(my_dog);
+		}
 	}
 	/* return struct*/
 	return (my_dog);
