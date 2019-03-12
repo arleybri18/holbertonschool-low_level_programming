@@ -73,18 +73,15 @@ dog_t *new_dog(char *name, float age, char *owner)
 	my_dog->name = _strdup(name);
 	if (my_dog->name == NULL)
 		free(my_dog);
+	my_dog->age = age;
+
 	my_dog->owner = _strdup(owner);
 	if (my_dog->owner == NULL)
 	{
-		if (my_dog->name == NULL)
-			free(my_dog->owner);
+		if (my_dog->name != 0)
+			free(my_dog->name);
 		free(my_dog);
 	}
-
-	/* initialize variables*/
-	my_dog->name = name;
-	my_dog->age = age;
-	my_dog->owner = owner;
 	/* return struct*/
 	return (my_dog);
 }
