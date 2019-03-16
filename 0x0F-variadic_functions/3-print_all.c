@@ -7,28 +7,44 @@ void print_int(va_list);
 void print_float(va_list);
 void print_string(va_list);
 
-/* struct contain type and string*/
-typedef struct print_function
-{
-	char *type;
-	void (*func)(va_list);
-} print_function;
+/**
+ * print_char - function that print char
+ *
+ * @list: list of variadic argument
+ */
 
-/* function that print char*/
 void print_char(va_list  list)
 {
 	printf("%c", va_arg(list, int));
 }
+
+/**
+ * print_int - function that print integer
+ *
+ * @list: list of variadic argument
+ */
 
 void print_int(va_list list)
 {
 	printf("%i", va_arg(list, int));
 }
 
+/**
+ * print_float - function that print float
+ *
+ * @list: list of variadic argument
+ */
+
 void print_float(va_list list)
 {
 	printf("%f", va_arg(list, double));
 }
+
+/**
+ * print_string - function that print string
+ *
+ * @list: list of variadic argument
+ */
 
 void print_string(va_list list)
 {
@@ -43,16 +59,17 @@ void print_string(va_list list)
 }
 
 /**
- * print_all -
+ * print_all - function that print all arguments
  *
- * Return:
+ * @format: format for print the argument
+ * Return: nothing
  */
 void print_all(const char * const format, ...)
 {
 	va_list valist;
 	int count_format;
 	int arr_function;
-
+	/*Declare array of structs for selected function*/
 	print_function arr_functions[] = {
 	{"c", print_char},
 	{"i", print_int},
@@ -60,30 +77,34 @@ void print_all(const char * const format, ...)
 	{"s", print_string},
 	{NULL, NULL}
 	};
-
+	/*initilize list of arguments*/
 	va_start(valist, format);
-
+	/* intialize counter for loop*/
 	count_format = 0;
+	/* Iterate on string format */
 	while (format[count_format] != '\0')
 	{
-		/*printf("%c\n",format[count_format]);*/
+		/* intialize counter for array structs*/
 		arr_function  = 0;
+		/* Itearte on array structs*/
 		while (arr_functions[arr_function].type != NULL)
 		{
-			/*printf("estoy aqui %s\n",arr_functions[arr_function].type);*/
+			/* Validate if member type is equal to char in string format */
 			if (*arr_functions[arr_function].type == format[count_format])
 			{
-				/*printf("entre en el if");*/
+				/* call function in array struct, sending parameter valist*/
 				arr_functions[arr_function].func(valist);
 			}
 			arr_function++;
 
 		}
 		count_format++;
+		/* control of separator*/
 		if (format[count_format + 3] != '\0')
 			printf(", ");
 	}
 	printf("\n");
+	/* free memory*/
 	va_end(valist);
 
 

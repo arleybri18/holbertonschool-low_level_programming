@@ -5,7 +5,12 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-
+/* struct contain type and string*/
+typedef struct print_function
+{
+char *type;
+void (*func)(va_list);
+} print_function;
 
 
 int sum_them_all(const unsigned int n, ...);
