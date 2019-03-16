@@ -22,6 +22,10 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	do {
 		string = va_arg(valist, char *);
 		/* conditions for determinate if print counter*/
+		if (string == NULL)
+			string = "(nil)";
+
+
 		if (i != (n - 1))
 		{
 			if (separator != NULL)
