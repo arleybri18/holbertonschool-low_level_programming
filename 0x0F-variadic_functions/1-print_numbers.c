@@ -16,10 +16,9 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	/* initialize valist for number of arguments*/
 	va_start(valist, n);
-	/* initialize counter*/
-	i = 0;
 	/* Iterate arguments*/
-	do {
+	for (i = 0; i < n; i++)
+	{
 		/* conditions for determinate if print counter*/
 		if (i != (n - 1))
 		{
@@ -30,8 +29,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		}
 		else
 			printf("%d\n", va_arg(valist, int));
-		i++;
-	} while (i < n);
+	}
 	/* free memory */
 	va_end(valist);
 }
