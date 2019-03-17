@@ -17,16 +17,14 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	/* initialize valist for number of arguments*/
 	va_start(valist, n);
 	/* Iterate arguments*/
-	for (i = 0; i < n; i++)
+	i = 0;
+	while (i < (n - 1))
 	{
-		/* conditions for determinate if print counter*/
-		if (i != (n - 1))
-		{
-
-			printf("%d", va_arg(valist, int));
-			if (separator != NULL)
-				printf("%s", separator);
-		}
+		printf("%d", va_arg(valist, int));
+		/*validate if separator is NULL*/
+		if (separator != NULL)
+			printf("%s", separator);
+		i++;
 	}
 	printf("%d\n", va_arg(valist, int));
 	/* free memory */
