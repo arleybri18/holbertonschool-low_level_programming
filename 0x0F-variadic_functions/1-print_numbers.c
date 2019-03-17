@@ -22,14 +22,13 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		/* conditions for determinate if print counter*/
 		if (i != (n - 1))
 		{
+
+			printf("%d", va_arg(valist, int));
 			if (separator != NULL)
-				printf("%d%s", va_arg(valist, int), separator);
-			else
-				printf("%d", va_arg(valist, int));
+				printf("%s", separator);
 		}
-		else
-			printf("%d\n", va_arg(valist, int));
 	}
+	printf("%d\n", va_arg(valist, int));
 	/* free memory */
 	va_end(valist);
 }
