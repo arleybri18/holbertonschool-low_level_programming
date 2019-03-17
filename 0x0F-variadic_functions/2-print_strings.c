@@ -24,14 +24,14 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		while (i < (n - 1))
 		{
 			string = va_arg(valist, char *);
-			/* conditions for determinate if print counter*/
+			/* conditions for determinate if print pointer or string*/
 			if (string == NULL)
 				printf("%p", string);
-			
-			if (separator != NULL)
-				printf("%s%s", string, separator);
 			else
 				printf("%s", string);
+			
+			if (separator != NULL)
+				printf("%s", separator);
 		
 			i++;
 		}
