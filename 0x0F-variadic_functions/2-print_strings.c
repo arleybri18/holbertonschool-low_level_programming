@@ -22,7 +22,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		/* initialize counter*/
 		i = 0;
 		/* Iterate arguments*/
-		while (i < (n - 1))
+		while (i < n)
 		{
 			string = va_arg(valist, char *);
 			/* conditions for determinate if print pointer or string*/
@@ -30,7 +30,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 				printf("%p", string);
 			else
 				printf("%s", string);
-			if (separator != NULL)
+			if (separator != NULL && i < (n - 1))
 				printf("%s", separator);
 		i++;
 		}
