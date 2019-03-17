@@ -13,30 +13,34 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	va_list valist;
 	unsigned int i;
 	char *string;
+	
+	if (n > 0)
+	{
+		/* initialize valist for number of arguments*/
+		va_start(valist, n);
+		/* initialize counter*/
+		i = 0;
+		/* Iterate arguments*/
+		do {
+			string = va_arg(valist, char *);
+			/* conditions for determinate if print counter*/
+			if (string == NULL)
+				string = "(nil)";
 
-	/* initialize valist for number of arguments*/
-	va_start(valist, n);
-	/* initialize counter*/
-	i = 0;
-	/* Iterate arguments*/
-	do {
-		string = va_arg(valist, char *);
-		/* conditions for determinate if print counter*/
-		if (string == NULL)
-			string = "(nil)";
 
-
-		if (i != (n - 1))
-		{
-			if (separator != NULL)
-				printf("%s%s", string, separator);
+			if (i != (n - 1))
+			{
+				if (separator != NULL)
+					printf("%s%s", string, separator);
+				else
+					printf("%s", string);
+			}
 			else
 				printf("%s", string);
-		}
-		else
-			printf("%s\n", string);
-		i++;
-	} while (i < n);
-	/* free memory */
-	va_end(valist);
+			i++;
+		} while (i < n);
+		/* free memory */
+		va_end(valist);
+	}
+	printf("\n");
 }
