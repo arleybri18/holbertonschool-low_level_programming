@@ -8,7 +8,7 @@
 /* struct contain type and string*/
 typedef struct print_function
 {
-char *type;
+const char * const type;
 void (*func)(va_list);
 } print_function;
 
