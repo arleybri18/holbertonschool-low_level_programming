@@ -13,7 +13,8 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	va_list valist;
 	unsigned int i;
 	char *string;
-	
+
+	/* validate if n containa a number*/
 	if (n > 0)
 	{
 		/* initialize valist for number of arguments*/
@@ -29,11 +30,9 @@ void print_strings(const char *separator, const unsigned int n, ...)
 				printf("%p", string);
 			else
 				printf("%s", string);
-			
 			if (separator != NULL)
 				printf("%s", separator);
-		
-			i++;
+		i++;
 		}
 		printf("%s", va_arg(valist, char *));
 		/* free memory */
