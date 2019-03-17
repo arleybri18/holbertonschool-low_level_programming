@@ -8,57 +8,6 @@ void print_float(va_list);
 void print_string(va_list);
 
 /**
- * print_char - function that print char
- *
- * @list: list of variadic argument
- */
-
-void print_char(va_list  list)
-{
-	printf("%c", va_arg(list, int));
-}
-
-/**
- * print_int - function that print integer
- *
- * @list: list of variadic argument
- */
-
-void print_int(va_list list)
-{
-	printf("%i", va_arg(list, int));
-}
-
-/**
- * print_float - function that print float
- *
- * @list: list of variadic argument
- */
-
-void print_float(va_list list)
-{
-	printf("%f", va_arg(list, double));
-}
-
-/**
- * print_string - function that print string
- *
- * @list: list of variadic argument
- */
-
-void print_string(va_list list)
-{
-	char *string;
-
-	string = va_arg(list, char *);
-
-	if (string == NULL)
-		string = "(nil)";
-	printf("%s", string);
-
-}
-
-/**
  * print_all - function that print all arguments
  *
  * @format: format for print the argument
@@ -107,5 +56,57 @@ void print_all(const char * const format, ...)
 	/* free memory*/
 	va_end(valist);
 
+
+}
+
+/**
+ * print_char - function that print char
+ *
+ * @list: list of variadic argument
+ */
+
+void print_char(va_list  list)
+{
+	printf("%c", va_arg(list, int));
+}
+
+/**
+ * print_int - function that print integer
+ *
+ * @list: list of variadic argument
+ */
+
+void print_int(va_list list)
+{
+	printf("%i", va_arg(list, int));
+}
+
+/**
+ * print_float - function that print float
+ *
+ * @list: list of variadic argument
+ */
+
+void print_float(va_list list)
+{
+	printf("%f", va_arg(list, double));
+}
+
+/**
+ * print_string - function that print string
+ *
+ * @list: list of variadic argument
+ */
+
+void print_string(va_list list)
+{
+	char *string;
+
+	string = va_arg(list, char *);
+
+	if (string == NULL)
+		printf("%p", string);
+	else
+		printf("%s", string);
 
 }
