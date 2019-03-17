@@ -82,7 +82,7 @@ void print_all(const char * const format, ...)
 	/* intialize counter for loop*/
 	count_format = 0;
 	/* Iterate on string format */
-	while (format[count_format] != '\0')
+	while (format != NULL && format[count_format] != '\0')
 	{
 		/* intialize counter for array structs*/
 		arr_function  = 0;
@@ -94,14 +94,14 @@ void print_all(const char * const format, ...)
 			{
 				/* call function in array struct, sending parameter valist*/
 				arr_functions[arr_function].func(valist);
+				/*control of separator*/
+				if (format[count_format + 1] != '\0')
+					printf(", ");
 			}
 			arr_function++;
 
 		}
 		count_format++;
-		/* control of separator*/
-		if (format[count_format + 3] != '\0')
-			printf(", ");
 	}
 	printf("\n");
 	/* free memory*/
