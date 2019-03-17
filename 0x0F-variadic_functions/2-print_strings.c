@@ -26,7 +26,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			string = va_arg(valist, char *);
 			/* conditions for determinate if print counter*/
 			if (string == NULL)
-				printf("%s", string);
+				printf("%p", string);
 			
 			if (separator != NULL)
 				printf("%s%s", string, separator);
