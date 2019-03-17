@@ -82,7 +82,7 @@ void print_all(const char * const format, ...)
 	/* intialize counter for loop*/
 	count_format = 0;
 	/* Iterate on string format */
-	while (format != NULL && format[count_format] != '\0')
+	while (format != NULL && format[count_format])
 	{
 		/* intialize counter for array structs*/
 		arr_function  = 0;
