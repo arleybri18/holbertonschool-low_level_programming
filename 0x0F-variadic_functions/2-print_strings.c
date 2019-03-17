@@ -21,24 +21,21 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		/* initialize counter*/
 		i = 0;
 		/* Iterate arguments*/
-		do {
+		while (i < (n - 1))
+		{
 			string = va_arg(valist, char *);
 			/* conditions for determinate if print counter*/
 			if (string == NULL)
 				string = "(nil)";
-
-
-			if (i != (n - 1))
-			{
-				if (separator != NULL)
-					printf("%s%s", string, separator);
-				else
-					printf("%s", string);
-			}
+			
+			if (separator != NULL)
+				printf("%s%s", string, separator);
 			else
 				printf("%s", string);
+		
 			i++;
-		} while (i < n);
+		}
+		printf("%s", va_arg(valist, char *));
 		/* free memory */
 		va_end(valist);
 	}
