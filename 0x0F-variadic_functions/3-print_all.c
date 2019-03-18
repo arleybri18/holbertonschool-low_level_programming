@@ -1,4 +1,5 @@
 #include "variadic_functions.h"
+#include <stdio.h>
 /**
  * print_all - function that print all arguments
  *
@@ -8,6 +9,7 @@ void print_all(const char * const format, ...)
 {
 	va_list valist;
 	int count_format = 0, skip;
+	char *string;
 	/*Declare array of structs for selected function*/
 	/*initilize list of arguments*/
 	va_start(valist, format);
@@ -18,16 +20,19 @@ void print_all(const char * const format, ...)
 		switch (format[count_format])
 		{
 			case 'c':
-				print_char(valist);
+				printf("%c", va_arg(valist, int));
 				break;
 			case 'i':
-				print_int(valist);
+				printf("%i", va_arg(valist, int));
 				break;
 			case 'f':
-				print_float(valist);
+				printf("%f", va_arg(valist, double));
 				break;
 			case 's':
-				print_string(valist);
+				string = va_arg(valist, char *);
+				if (string == NULL)
+					printf("%p", string);
+				printf("%s", string);
 				break;
 			default:
 				skip = 1;
@@ -42,56 +47,4 @@ void print_all(const char * const format, ...)
 	printf("\n");
 	/* free memory*/
 	va_end(valist);
-}
-
-/**
- * print_char - function that print char
- *
- * @list: list of variadic argument
- */
-
-void print_char(va_list  list)
-{
-	printf("%c", va_arg(list, int));
-}
-
-/**
- * print_int - function that print integer
- *
- * @list: list of variadic argument
- */
-
-void print_int(va_list list)
-{
-	printf("%i", va_arg(list, int));
-}
-
-/**
- * print_float - function that print float
- *
- * @list: list of variadic argument
- */
-
-void print_float(va_list list)
-{
-	printf("%f", va_arg(list, double));
-}
-
-/**
- * print_string - function that print string
- *
- * @list: list of variadic argument
- */
-
-void print_string(va_list list)
-{
-	char *string;
-
-	string = va_arg(list, char *);
-
-	if (string == NULL)
-		printf("%p", string);
-	else
-		printf("%s", string);
-
 }
