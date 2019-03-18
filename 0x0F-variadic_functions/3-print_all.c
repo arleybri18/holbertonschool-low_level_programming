@@ -1,23 +1,13 @@
 #include "variadic_functions.h"
-#include <string.h>
-
-
-void print_char(va_list);
-void print_int(va_list);
-void print_float(va_list);
-void print_string(va_list);
-
 /**
  * print_all - function that print all arguments
  *
  * @format: format for print the argument
- * Return: nothing
  */
 void print_all(const char * const format, ...)
 {
 	va_list valist;
-	int count_format;
-	int arr_function;
+	int count_format = 0, arr_function = 0;
 	/*Declare array of structs for selected function*/
 	print_function arr_functions[] = {
 	{"c", print_char},
@@ -28,8 +18,6 @@ void print_all(const char * const format, ...)
 	};
 	/*initilize list of arguments*/
 	va_start(valist, format);
-	/* intialize counter for loop*/
-	count_format = 0;
 	/* Iterate on string format */
 	while (format != NULL && format[count_format])
 	{
@@ -39,7 +27,7 @@ void print_all(const char * const format, ...)
 		while (arr_functions[arr_function].type != NULL)
 		{
 			/* Validate if member type is equal to char in string format */
-			if (*arr_functions[arr_function].type == format[count_format])
+			if (*(arr_functions[arr_function].type) == format[count_format])
 			{
 				/* call function in array struct, sending parameter valist*/
 				arr_functions[arr_function].func(valist);
@@ -55,8 +43,6 @@ void print_all(const char * const format, ...)
 	printf("\n");
 	/* free memory*/
 	va_end(valist);
-
-
 }
 
 /**
