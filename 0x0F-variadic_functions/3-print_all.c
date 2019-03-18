@@ -23,7 +23,7 @@ void print_all(const char * const format, ...)
 				printf("%c", va_arg(valist, int));
 				break;
 			case 'i':
-				printf("%i", va_arg(valist, int));
+				printf("%d", va_arg(valist, int));
 				break;
 			case 'f':
 				printf("%f", va_arg(valist, double));
@@ -31,7 +31,10 @@ void print_all(const char * const format, ...)
 			case 's':
 				string = va_arg(valist, char *);
 				if (string == NULL)
+				{
 					printf("%p", string);
+					break;
+				}
 				printf("%s", string);
 				break;
 			default:
