@@ -11,4 +11,4 @@ main:	            ;tells linker entry point
    int	0x80        ;call kernel
 
 section	.data
-msg db 'Hello, Holberton', 0xa  ;string to be printed
+msg db 'Hello, Holberton', 0x0a  ;string to be printed
