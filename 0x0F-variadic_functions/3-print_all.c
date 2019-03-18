@@ -42,7 +42,6 @@ void print_all(const char * const format, ...)
 	}
 	printf("\n");
 	/* free memory*/
-	va_end(valist);
 }
 
 /**
