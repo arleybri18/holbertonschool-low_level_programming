@@ -7,41 +7,41 @@
 void print_all(const char * const format, ...)
 {
 	va_list valist;
-	int count_format = 0, arr_function = 0;
+	int count_format = 0, skip;
 	/*Declare array of structs for selected function*/
-	print_function arr_functions[] = {
-	{"c", print_char},
-	{"i", print_int},
-	{"f", print_float},
-	{"s", print_string},
-	{NULL, NULL}
-	};
 	/*initilize list of arguments*/
 	va_start(valist, format);
 	/* Iterate on string format */
 	while (format != NULL && format[count_format])
 	{
-		/* intialize counter for array structs*/
-		arr_function  = 0;
-		/* Itearte on array structs*/
-		while (arr_functions[arr_function].type != NULL)
+		skip = 0;
+		switch (format[count_format])
 		{
-			/* Validate if member type is equal to char in string format */
-			if (*(arr_functions[arr_function].type) == format[count_format])
-			{
-				/* call function in array struct, sending parameter valist*/
-				arr_functions[arr_function].func(valist);
-				/*control of separator*/
-				if (format[count_format + 1] != '\0')
-					printf(", ");
-			}
-			arr_function++;
+			case 'c':
+				print_char(valist);
+				break;
+			case 'i':
+				print_int(valist);
+				break;
+			case 'f':
+				print_float(valist);
+				break;
+			case 's':
+				print_string(valist);
+				break;
+			default:
+				skip = 1;
+				break;
 
 		}
+		/*control of separator*/
+		if (format[count_format + 1] != '\0' && skip == 0)
+			printf(", ");
 		count_format++;
 	}
 	printf("\n");
 	/* free memory*/
+	va_end(valist);
 }
 
 /**
