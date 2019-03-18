@@ -2,9 +2,10 @@ section	.text
    global main      ;must be declared for linker (ld)
 
 main:	            ;tells linker entry point
-   mov	ecx,msg     ;message to write
-   mov	ebx,1       ;file descriptor (stdout)
    mov	eax,4       ;system call number (sys_write)
+   mov	ebx,1       ;file descriptor (stdout)
+   mov	ecx,msg     ;message to write
+   mov  edx, size    ;size to write
    int	0x80        ;call kernel
    mov	eax,0       ;system call number (sys_exit)
    int	0x80        ;call kernel
