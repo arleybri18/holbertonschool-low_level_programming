@@ -9,7 +9,7 @@
  */
 size_t print_list(const list_t *h)
 {
-	size_t n;
+	int n = 0;
 
 	/*iterate in struct*/
 	while (h != NULL)
