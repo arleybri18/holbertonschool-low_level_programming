@@ -11,7 +11,8 @@
 list_t *add_node_end(list_t **head, const char *str)
 {
 	/* create a new node and the last pointer*/
-	list_t *new, list_t *last = *head;
+	list_t *new;
+	list_t *last = *head;
 	/* duplicate and validate string*/
 	char *new_str;
 	int lenght = 0;
