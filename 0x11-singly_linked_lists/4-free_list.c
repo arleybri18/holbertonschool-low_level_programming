@@ -18,6 +18,7 @@ void free_list(list_t *head)
 		/* save next node */
 		next_node = current_node->next;
 		/* free memory */
+		free(current_node->str);
 		free(current_node);
 		/* save current_node */
 		current_node = next_node;
