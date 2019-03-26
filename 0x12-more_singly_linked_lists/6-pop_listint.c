@@ -13,7 +13,7 @@ int pop_listint(listint_t **head)
 	listint_t *aux;
 	/*validate if the list is empty*/
 	if (head == NULL)
-		return (number_data);
+		return (0);
 
 
 	/*aux point to the head*/
