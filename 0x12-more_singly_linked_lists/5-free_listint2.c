@@ -13,6 +13,9 @@ void free_listint2(listint_t **head)
 	/*2- declare an auxiliar for the next node*/
 	listint_t *next_node;
 
+	if (head == NULL)
+		return (NULL);
+
 	while (current_node != NULL)
 	{
 		/*save the point to the next node*/
