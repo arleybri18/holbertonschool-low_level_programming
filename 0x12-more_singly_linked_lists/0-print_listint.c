@@ -8,12 +8,12 @@
  */
 size_t print_listint(const listint_t *h)
 {
-	int counter;
+	unsigned int counter;
 	/* iterate using the head*/
 	counter = 0;
 	/* validate if the list have elements*/
 	if (h == NULL)
-		return (0);
+		return (counter);
 	while (h)
 	{
 		printf("%d\n", h->n);
