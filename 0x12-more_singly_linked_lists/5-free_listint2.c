@@ -9,10 +9,11 @@
 void free_listint2(listint_t **head)
 {
 	/*1- declare a pointer to point to the current node*/
-	listint_t *current_node = *head;
+	listint_t *current_node;
 
 	if (head == NULL)
 		return;
+	current_node = *head;
 
 	while (*head != NULL)
 	{
