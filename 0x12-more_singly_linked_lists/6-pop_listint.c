@@ -11,21 +11,22 @@ int pop_listint(listint_t **head)
 	int number_data = 0;
 	/*create a auxiliar node*/
 	listint_t *aux;
-	/*validate if the list is empty*/
-	if (head == NULL)
-		return (0);
-
-
-	/*aux point to the head*/
-	aux = *head;
-	/*save the data*/
-	number_data = aux->n;
-	/*point to the next element*/
-	aux = aux->next;
-	/*deleted firts element*/
-	free(*head);
-	/*head point to the new firts element*/
-	*head = aux;
-	/* return data saved*/
-	return (number_data);
+	/*validate if the list not is empty*/
+	if (*head != NULL)
+	{
+		/*aux point to the head*/
+		aux = *head;
+		/*save the data*/
+		number_data = aux->n;
+		/*point to the next element*/
+		aux = aux->next;
+		/*deleted firts element*/
+		free(*head);
+		/*head point to the new firts element*/
+		*head = aux;
+		/* return data saved*/
+		return (number_data);
+	}
+	/*return 0 if head is null*/
+	return (0);
 }
