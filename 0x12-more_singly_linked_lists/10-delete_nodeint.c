@@ -1,6 +1,27 @@
 #include "lists.h"
 
 /**
+ * len_list - calculate a lenght of the list
+ *
+ * @head:  head of the list
+ * Return: lenght of the list
+ */
+unsigned int len_list(listint_t **head)
+{
+	listint_t *aux_node = *head;
+	unsigned int counter_idx;
+
+	counter_idx = 0;
+	/* validate a lenght of the list*/
+	while (aux_node)
+	{
+		counter_idx++;
+		aux_node = aux_node->next;
+	}
+	return (counter_idx);
+}
+
+/**
  * delete_nodeint_at_index - delete node index
  *
  * @head: head of the list
@@ -11,7 +32,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	/*declare pointers*/
 	listint_t *current_node;
-	listint_t *prev_node;
+	listint_t *delete_node;
 	unsigned int counter_idx;
 
 	if (*head == NULL)
@@ -19,13 +40,9 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 
 	/*save point to the head*/
 	current_node = *head;
-	prev_node = *head;
+	delete_node = *head;
 	/*calculate lenght of the list*/
-	while (current_node)
-	{
-		counter_idx++;
-		current_node = current_node->next;
-	}
+	counter_idx = len_list(head);
 	/*validate if teh index not exist in the list*/
 	if (counter_idx < index)
 		return (-1);
@@ -35,22 +52,21 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 
 	if (index == 0)
 	{
-		*head = current_node->next;
-		current_node->next = NULL;
-		free(current_node);
+		current_node = current_node->next;
+		free(*head);
+		*head = current_node;
 		return (1);
 	}
 	/*iterate until index*/
-	while (counter_idx < index)
+	while (counter_idx != index && delete_node != NULL)
 	{
-		current_node = current_node->next;
-		if (counter_idx != 0)
-			prev_node = prev_node->next;
+		current_node = delete_node;
+		delete_node = delete_node->next;
 		counter_idx++;
 	}
 
-	prev_node = current_node->next;
-	current_node->next = NULL;
-	free(current_node);
+	current_node->next = delete_node->next;
+	delete_node->next = NULL;
+	free(delete_node);
 	return (1);
 }

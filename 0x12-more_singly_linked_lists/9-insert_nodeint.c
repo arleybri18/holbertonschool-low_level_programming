@@ -55,6 +55,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	/*iterate before index*/
 	counter_idx = 0;
 	aux_node = *head;
+	/*reorganize list if idx is equal to 0*/
 	if (idx == 0)
 	{
 		new_node->next = aux_node;
@@ -69,6 +70,5 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	/*change pointers*/
 	new_node->next = aux_node->next;
 	aux_node->next = new_node;
-
 	return (new_node);
 }
