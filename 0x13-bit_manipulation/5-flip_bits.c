@@ -1,17 +1,18 @@
 #include "holberton.h"
 
 /**
- * flip_bits -
+ * flip_bits - return number bytes necessary to change n to m
  *
- * Return: 
+ * @n: firts number
+ * @m: second number
+ * Return: 1- success -1 fail
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned int acum;
 	unsigned int xor;
-	
-	xor = n ^ m;
 
+	xor = n ^ m;
 	acum = 0;
 	while (xor != 0)
 	{
