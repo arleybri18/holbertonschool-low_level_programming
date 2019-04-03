@@ -15,7 +15,7 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	/*calculate lenght of the string sended*/
 	len_text = 0;
-	while (text_content[len_text] != '\0')
+	while (text_content[len_text])
 		len_text++;
 	/*open file*/
 	file_desc = open(filename, O_CREAT | O_TRUNC | O_RDWR, 0600);
@@ -23,18 +23,12 @@ int create_file(const char *filename, char *text_content)
 	if (file_desc == -1)
 		return (-1);
 	/*validate if text_context is null*/
-	if (text_content == NULL)
+	if (text_content)
 	{
 		close(file_desc);
 		return (1);
-	}
-	/*write in file*/
-	write_file = write(file_desc, text_content, len_text);
-	/*validate if write file fails*/
-	if (write_file == -1)
-	{
-		close(file_desc);
-		return (-1);
+		/*write in file*/
+		write_file = write(file_desc, text_content, len_text);
 	}
 	/*close file and return success*/
 	close(file_desc);
