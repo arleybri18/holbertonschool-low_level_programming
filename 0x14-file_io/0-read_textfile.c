@@ -15,10 +15,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	/*validate if filename is don't  send*/
 	if (filename == NULL)
 		return (0);
-
 	/*allocate memory for buffer*/
 	text = malloc(sizeof(char) * letters);
-
+	if (text == NULL)
+		return (0);
 	/*open file read only*/
 	file_desc = open(filename, O_RDONLY);
 	/*validate if open file fail */
@@ -37,6 +37,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	/*validate if write file fail*/
 	if (write_text == -1)
 		return (0);
+	free(text);
+	close(file_desc);
 	/*return number of charcaters readed*/
 	return (read_text);
 
