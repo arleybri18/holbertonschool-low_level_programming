@@ -18,20 +18,27 @@ int main(int ac, char **av)
 		exit(97);
 	}
 	file_from = open(av[1], O_RDONLY);
-	read_file = read(file_from, buffer, 1024);
-	if (file_from == -1 || read_file == -1)
+	if (file_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-		close(file_from);
 		exit(98);
 	}
 	file_to = open(av[2], O_CREAT | O_TRUNC | O_RDWR, 0664);
-	write_file = write(file_to, buffer, read_file);
-	if (file_to == -1 || write_file == -1)
+	if (file_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-		close(file_from);
-		close(file_to);
+		exit(99);
+	}
+	read_file = read(file_from, buffer, 1024);
+	if (read_file == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+		exit(98);
+	}
+	write_file = write(file_to, buffer, read_file);
+	if (write_file == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
 	cl_f1 = close(file_from);
