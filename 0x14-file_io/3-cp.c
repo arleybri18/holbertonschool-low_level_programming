@@ -9,7 +9,7 @@
  */
 int main(int ac, char **av)
 {
-	int file_from, file_to, read_file, write_file, cl_f2;
+	int file_from, file_to, read_file, write_file, cl_f1, cl_f2;
 	char buffer[1024];
 
 	if (ac != 3)
@@ -34,9 +34,9 @@ int main(int ac, char **av)
 		close(file_to);
 		exit(99);
 	}
-	close(file_from);
+	cl_f1 = close(file_from);
 	cl_f2 = close(file_to);
-	if (cl_f2 == -1)
+	if (cl_f1 == -1 || cl_f2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
 		exit(100);
