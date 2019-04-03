@@ -10,9 +10,7 @@
 int create_file(const char *filename, char *text_content)
 {
 	int file_desc, write_file, len_text;
-	/*validate if filename is null*/
-	if (filename == NULL)
-		return (-1);
+	
 	/*calculate lenght of the string sended*/
 	len_text = 0;
 	while (text_content[len_text])
@@ -38,5 +36,4 @@ int create_file(const char *filename, char *text_content)
 	if (write_file == -1)
 		return (-1);
 	return (1);
-
 }
