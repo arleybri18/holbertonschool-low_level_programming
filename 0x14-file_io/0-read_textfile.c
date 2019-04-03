@@ -17,7 +17,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 
 	/*allocate memory for buffer*/
-	text = malloc(sizeof(char) * letters + 1);
+	text = malloc(sizeof(char) * letters);
 
 	/*open file read only*/
 	file_desc = open(filename, O_RDONLY);
@@ -31,9 +31,9 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (file_desc == -1)
 		return (0);
 	/*add NULL character at end*/
-	text[letters + 1] = '\0';
+	/*text[letters + 1] = '\0';*/
 	/*write text readed*/
-	write_text = write(STDOUT_FILENO, text, letters + 1);
+	write_text = write(STDOUT_FILENO, text, letters);
 	/*validate if write file fail*/
 	if (write_text == -1)
 		return (0);
