@@ -23,17 +23,22 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	file_desc = open(filename, O_RDONLY);
 	/*validate if open file fail */
 	if (file_desc == -1)
+	{
+		free(text);
 		return (0);
+	}
 
 	/*read file*/
 	read_text = read(file_desc, text, letters);
 	/*validate if read file fail*/
 	if (file_desc == -1)
+	{
+		free(text);
+		close(file_desc);
 		return (0);
-	/*add NULL character at end*/
-	/*text[letters + 1] = '\0';*/
+	}
 	/*write text readed*/
-	write_text = write(STDOUT_FILENO, text, letters);
+	write_text = write(STDOUT_FILENO, text, read_text);
 	/*validate if write file fail*/
 	if (write_text == -1)
 		return (0);
@@ -41,9 +46,4 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	close(file_desc);
 	/*return number of charcaters readed*/
 	return (read_text);
-
-
-
-
-
 }
