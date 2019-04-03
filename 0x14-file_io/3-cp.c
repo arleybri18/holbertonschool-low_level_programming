@@ -42,8 +42,13 @@ int main(int ac, char **av)
 		exit(99);
 	}
 	cl_f1 = close(file_from);
+	if (cl_f1 == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
+		exit(100);
+	}
 	cl_f2 = close(file_to);
-	if (cl_f1 == -1 || cl_f2 == -1)
+	if (cl_f2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
 		exit(100);
