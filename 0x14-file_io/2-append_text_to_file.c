@@ -25,7 +25,10 @@ int str_len(char *str)
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int file_desc, write_file, len_text;
+	int file_desc, write_file;
+
+	if (!filename)
+		return (-1);
 	/*open file*/
 	file_desc = open(filename, O_WRONLY | O_APPEND);
 	/*validate if open file fails*/
