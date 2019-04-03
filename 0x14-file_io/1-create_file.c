@@ -21,17 +21,22 @@ int create_file(const char *filename, char *text_content)
 	file_desc = open(filename, O_CREAT | O_TRUNC | O_RDWR, 0600);
 	/*validate if open file fails*/
 	if (file_desc == -1)
+	{
+		close(file_desc);
 		return (-1);
+	}
 	/*validate if text_context is null*/
-	if (text_content)
+	if (text_content == NULL)
 	{
 		close(file_desc);
 		return (1);
-		/*write in file*/
-		write_file = write(file_desc, text_content, len_text);
 	}
-	/*close file and return success*/
+	/*write in file*/
+	write_file = write(file_desc, text_content, len_text);
 	close(file_desc);
+	/*validate if write file fails*/
+	if (write_file == -1)
+		return (-1);
 	return (1);
 
 }
