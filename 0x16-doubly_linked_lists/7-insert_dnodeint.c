@@ -1,56 +1,72 @@
 #include "lists.h"
-
 /**
- * create_nodeint - function that creates a node of a structure type
+ * len_list - calculate a lenght of the list
  *
- * @new: new node to create
- *
- * @n: integer data of the structure
- *
- * Return: the address of the new element, or NULL if it failed
+ * @head: head of the list
+ * Return: lenght of the list
  */
-dlistint_t *create_nodeint(dlistint_t *new, int n)
+unsigned int len_list(dlistint_t **head)
 {
-	new = malloc(sizeof(dlistint_t));
-	if (!new)
+	dlistint_t *aux_node = *head;
+	unsigned int counter_idx;
+
+	counter_idx = 0;
+	/*validate lenght of the list*/
+	while (aux_node)
 	{
-		return (NULL);
+		counter_idx++;
+		aux_node = aux_node->next;
 	}
-	new->n = n;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
+	return (counter_idx);
 }
 
 /**
- * insert_dnodeint_at_index - insert a new node at a given position
+ *insert_dnodeint_at_index - insert node at the index
  *
- * @h: head element of a list
- *
- * @idx: index of the node to insert
- *
- * @n: integer element of the node
- *
- * Return: address of the new node, or NULL if it failed
+ *@h: head of the list
+ *@idx: index in the list
+ *@n: data for the node at the list
+ *Return: address of the new element
  */
+
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new = NULL, *ins, *aux;
-	unsigned int i;
+	dlistint_t *new_node = NULL, *aux = *h;
+	unsigned int count;
 
-	new = create_nodeint(new, n);
-	ins = *h;
-	for (i = 0; i < idx; i++)
+	count = len_list(h);
+	if (count < idx)
+		return (NULL);
+	if (idx == 0)
 	{
-		ins = ins->next;
-		if (ins == NULL)
-			return (NULL);
+		aux = add_dnodeint(h, n);
+		return (aux);
 	}
-
-	aux = ins->prev;
-	ins->prev = new;
-	aux->next = new;
-	new->next = ins;
-	new->prev = aux;
-	return (new);
+	if (idx == count)
+	{
+		aux = add_dnodeint_end(h, n);
+		return (aux);
+	}
+	if (h == NULL)
+	{
+		new_node->n = n;
+		new_node->next = NULL;
+		new_node->prev = NULL;
+		return (new_node);
+	}
+	new_node = malloc(sizeof(dlistint_t));
+	if (new_node == NULL)
+	{
+		free(new_node);
+		return (NULL);
+	}
+	count = 0;
+	for (count = 0; count < (idx - 1) && aux->next != NULL; count++)
+		aux = aux->next;
+	new_node->n = n;
+	new_node->next = aux->next;
+	new_node->prev = aux;
+	aux->next = new_node;
+	aux->next->prev = new_node;
+	return (new_node);
 }
