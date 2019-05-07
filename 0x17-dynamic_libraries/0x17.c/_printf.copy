@@ -1,5 +1,6 @@
 #include <stdlib.h>
-void printf(){
-write(1, "Please make me win!",19);
+int printf(const char *format){
+(void)format;
+write(1, "9 8 10 24 75 - 9\nCongratulations, you win the jackpot!",55);
 exit(EXIT_SUCCESS);
 }
