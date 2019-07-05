@@ -1,0 +1,6 @@
+CC=gcc
+SRC=main.c holberton.c
+.PHONY: all
+all: main.c
+	$(CC) $(SRC) -o holberton
+
