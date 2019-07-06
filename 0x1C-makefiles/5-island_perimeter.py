@@ -28,8 +28,13 @@ def island_perimeter(grid):
         height.append(h)
     h = max(height)
     w = max(width)
-    if h == w:
+    if h == 1 and w == 1:
         per = 1
     else:
-        per = 2 * (h + w)
+        if h == 1:
+            per = w
+        elif w == 1:
+            per = h
+        else:
+            per = 2 * (h + w)
     return per
